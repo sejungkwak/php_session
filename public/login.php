@@ -9,7 +9,7 @@ require_once ('config.php'); // This is where the username and password are curr
 
 <body>
     <div class="container">
-        <form action="" method="post" name="Login_Form" class="form-signin">
+        <form action="index.php" method="post" name="Login_Form" class="form-signin">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputUsername" >Username</label>
             <input name="Username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
@@ -35,6 +35,8 @@ if(isset($_POST['Submit']))
     if( ($_POST['Username'] == $Username) && ($_POST['Password'] == $Password) )
     {
         echo 'Success';
+        /* Success: Set session variables and redirect to protected page */
+        $_SESSION['Username'] = $Username; //store Username to the session
     }
     else
         echo 'Incorrect Username or Password';
