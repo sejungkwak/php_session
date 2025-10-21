@@ -1,8 +1,16 @@
 <?php
 require_once ('config.php'); // This is where the username and password are currently stored.
+session_start();
 ?>
 
-<?php require_once('../template/header.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="../css/signin.css">
     <title>Sign in</title>
 </head>
@@ -36,6 +44,7 @@ if(isset($_POST['Submit']))
     {
         /* Success: Set session variables and redirect to protected page */
         $_SESSION['Username'] = $Username; // store Username to the session
+        $_SESSION['Active'] = true;
         header("location: index.php"); // 'header()' is used to redirect the browser
         exit; // terminate all current code so that it doesn't run when we redirect
     }
