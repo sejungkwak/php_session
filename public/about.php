@@ -24,11 +24,11 @@
             </form>
         </div>
 
-      <div class="row marketing">
-          <div>
-              <h4>About page</h4>
-              <p>Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here.</p>
-          </div>
-      </div>
+        <div class="row marketing">
+            <div>
+                <h4>About page</h4>
+                <p>Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here.</p>
+            </div>
+        </div>
 
 <?php require_once '../template/footer.php';?>

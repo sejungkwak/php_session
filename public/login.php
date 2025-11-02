@@ -20,9 +20,9 @@ session_start();
         <form action="" method="post" name="Login_Form" class="form-signin">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputUsername" >Username</label>
-            <input name="Username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <input name="Username" type="text" id="inputUsername" class="form-control" placeholder="Username" minlength="4" required autofocus>
             <label for="inputPassword">Password</label>
-            <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" minlength="4" required>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
@@ -40,7 +40,13 @@ if(isset($_POST['Submit']))
     /* these currently check against variable values stored in
     config.php but later we will see how these can be checked against
     information in a database. */
-    if( ($_POST['Username'] == $Username) && ($_POST['Password'] == $Password) )
+
+    require "common.php";
+
+    $name = escape($_POST['Username']);
+    $pass = escape($_POST['Password']);
+
+    if( ($name == $Username) && ($pass == $Password) )
     {
         /* Success: Set session variables and redirect to protected page */
         $_SESSION['Username'] = $Username; // store Username to the session
