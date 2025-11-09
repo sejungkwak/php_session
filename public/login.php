@@ -28,6 +28,7 @@ session_start();
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
+            <p><a href="signup.php">I don't have an account</a></p>
             <button name="Submit" value="Login" class="button" type="submit">Sign in</button>
         </form>
 
@@ -41,21 +42,30 @@ if(isset($_POST['Submit']))
     config.php but later we will see how these can be checked against
     information in a database. */
 
-    require "common.php";
+    try {
+        require "common.php";
+        require_once "../src/DBconnect.php";
 
-    $name = escape($_POST['Username']);
-    $pass = escape($_POST['Password']);
+        $sql = "SELECT username, password FROM users WHERE username = :username";
+        $username = escape($_POST['Username']);
 
-    if( ($name == $Username) && ($pass == $Password) )
-    {
-        /* Success: Set session variables and redirect to protected page */
-        $_SESSION['Username'] = $Username; // store Username to the session
-        $_SESSION['Active'] = true;
-        header("location: index.php"); // 'header()' is used to redirect the browser
-        exit; // terminate all current code so that it doesn't run when we redirect
+        $statement = $connection->prepare($sql);
+        $statement->bindParam(':username', $username, PDO::PARAM_STR);
+        $statement->execute();
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $password = escape($_POST['Password']);
+
+        if($username && $row['password'] == $password) {
+            $_SESSION['Username'] = $username; // store Username to the session
+            $_SESSION['Active'] = true;
+            header("location: index.php"); // 'header()' is used to redirect the browser
+            exit; // terminate all current code so that it doesn't run when we redirect
+        } else
+            echo 'Incorrect Username or Password';
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
     }
-    else
-        echo 'Incorrect Username or Password';
 }
 ?>
 

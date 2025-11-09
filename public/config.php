@@ -1,8 +1,9 @@
 <?php
 
 /* Define username and password */
-$Username = "Steve";
-$Password = "pass";
+// I am commenting it out, as credentials are now stored in the localhost database.
+//$Username = "Steve";
+//$Password = "pass";
 
 /**
  * Configuration for database connection

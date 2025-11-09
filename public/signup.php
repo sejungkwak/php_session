@@ -12,6 +12,7 @@
 
 <body>
     <div class="container">
+        <form action="" method="post" name="Signup_Form" class="form-signin">
 
 <?php
 
@@ -39,13 +40,13 @@ if (isset($_POST['Submit']) && $statement) {
 
 ?>
 
-        <form action="" method="post" name="Signup_Form" class="form-signin">
             <h1 class="form-signin-heading">Please sign up</h1>
             <label for="inputUsername">Username</label>
             <input name="Username" type="text" id="inputUsername" class="form-control" placeholder="Username" minlength="4" required autofocus>
             <label for="inputPassword">Password</label>
             <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" minlength="4" required>
 
+            <p><a href="login.php">I have an account</a></p>
             <button name="Submit" class="button" type="submit">Sign up</button>
         </form>
     </div>
