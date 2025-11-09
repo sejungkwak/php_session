@@ -1,3 +1,11 @@
+# PHP Session
+
+A PHP app implementing login authentication using sessions for Web Application Development
+
+**To create the database, please open install.php in your browser (e.g. http://localhost/php_session/public/install.php)**
+
+======================================
+
 # PHP-Login
 
 Simple, easy-to-use, and database-free login system.
